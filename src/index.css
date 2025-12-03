@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Base colors - MALAR Palette */
+    --vanilla: 42 67% 93%;
+    --rich-brown: 8 30% 22%;
+    --persimmon: 13 82% 56%;
+    --warm-cream: 40 45% 96%;
+    --soft-taupe: 30 15% 88%;
+    
+    --background: 42 67% 93%;
+    --foreground: 8 30% 22%;
+
+    --card: 40 45% 96%;
+    --card-foreground: 8 30% 22%;
+
+    --popover: 40 45% 96%;
+    --popover-foreground: 8 30% 22%;
+
+    --primary: 13 82% 56%;
+    --primary-foreground: 42 67% 93%;
+
+    --secondary: 30 15% 88%;
+    --secondary-foreground: 8 30% 22%;
+
+    --muted: 30 15% 88%;
+    --muted-foreground: 8 30% 35%;
+
+    --accent: 13 82% 56%;
+    --accent-foreground: 42 67% 93%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 42 67% 93%;
+
+    --border: 30 15% 88%;
+    --input: 30 15% 88%;
+    --ring: 13 82% 56%;
+
+    --radius: 1rem;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(42 67% 93%) 0%, hsl(40 45% 96%) 50%, hsl(13 82% 56% / 0.1) 100%);
+    --gradient-soft: linear-gradient(180deg, hsl(42 67% 93%) 0%, hsl(40 45% 96%) 100%);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -5px hsl(8 30% 22% / 0.1);
+    --shadow-soft: 0 4px 16px -2px hsl(8 30% 22% / 0.08);
+    --shadow-hover: 0 20px 40px -10px hsl(13 82% 56% / 0.15);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 8 30% 12%;
+    --foreground: 42 67% 93%;
+
+    --card: 8 30% 15%;
+    --card-foreground: 42 67% 93%;
+
+    --popover: 8 30% 15%;
+    --popover-foreground: 42 67% 93%;
+
+    --primary: 13 82% 56%;
+    --primary-foreground: 8 30% 12%;
+
+    --secondary: 8 30% 20%;
+    --secondary-foreground: 42 67% 93%;
+
+    --muted: 8 30% 20%;
+    --muted-foreground: 30 15% 70%;
+
+    --accent: 13 82% 56%;
+    --accent-foreground: 8 30% 12%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 42 67% 93%;
+
+    --border: 8 30% 20%;
+    --input: 8 30% 20%;
+    --ring: 13 82% 56%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fadeIn 1s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+}
