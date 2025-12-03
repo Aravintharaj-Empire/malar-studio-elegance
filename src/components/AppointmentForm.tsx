@@ -78,15 +78,15 @@ const AppointmentForm = () => {
     .catch((err) => console.error(err));
     
     //2. Google Sheets Logging
-    fetch("https://script.google.com/macros/s/AKfycbwb5fDzYNySws2rZ-TdMbhvizLT18sV8yngC2RVIcUq1OFc37UgOSjEeyxwsKTJ4-Q9/exec", {
-  method: "POST",
-  mode: "cors",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify(templateParams)
-})
-.then(res => res.json())
-.then(data => console.log("Sheet updated:", data))
-.catch(err => console.error("Sheet error:", err));
+//     fetch("https://script.google.com/macros/s/AKfycbwb5fDzYNySws2rZ-TdMbhvizLT18sV8yngC2RVIcUq1OFc37UgOSjEeyxwsKTJ4-Q9/exec", {
+//   method: "POST",
+//   mode: "cors",
+//   headers: { "Content-Type": "application/json" },
+//   body: JSON.stringify(templateParams)
+// })
+// .then(res => res.json())
+// .then(data => console.log("Sheet updated:", data))
+// .catch(err => console.error("Sheet error:", err));
 
   toast.success("Appointment request submitted!");
   form.reset();
@@ -188,9 +188,11 @@ const AppointmentForm = () => {
                       </FormControl>
                       <SelectContent className="rounded-xl">
                         <SelectItem value="bridal">Bridal Makeup</SelectItem>
-                        <SelectItem value="party">Party Makeup</SelectItem>
-                        <SelectItem value="hd-airbrush">HD & Airbrush Makeup</SelectItem>
-                        <SelectItem value="training">Makeup Training Session</SelectItem>
+                        <SelectItem value="semi-bridal">Semi Bridal</SelectItem>
+                        <SelectItem value="party-makeup">Party Makeup</SelectItem>
+                        <SelectItem value="photoshoots">Photoshoots</SelectItem>
+                        <SelectItem value="events">Fashion Events</SelectItem>
+                        <SelectItem value="training">Training Session</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />
