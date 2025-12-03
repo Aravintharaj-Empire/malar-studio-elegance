@@ -11,10 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@emailjs/browser": "^4.4.1",
-=======
->>>>>>> origin/main
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-alert-dialog": "^1.1.14",
@@ -48,10 +45,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
     "date-fns": "^3.6.0",
-<<<<<<< HEAD
     "emailjs-com": "^3.2.0",
-=======
->>>>>>> origin/main
     "embla-carousel-react": "^8.6.0",
     "framer-motion": "^12.23.24",
     "input-otp": "^1.4.2",
