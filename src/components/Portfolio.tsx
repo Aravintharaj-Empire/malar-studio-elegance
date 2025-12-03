@@ -1,19 +1,24 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import portfolio1 from "@/assets/portfolio-1.jpg";
-import portfolio2 from "@/assets/portfolio-2.jpg";
-import portfolio3 from "@/assets/portfolio-3.jpg";
-import portfolio4 from "@/assets/portfolio-4.jpg";
-import portfolio5 from "@/assets/portfolio-5.jpg";
-import portfolio6 from "@/assets/portfolio-6.jpg";
+import portfolio1 from "@/assets/portfolio1.jpg";
+import portfolio2 from "@/assets/portfolio2.jpg";
+import portfolio3 from "@/assets/portfolio8.jpeg";
+import portfolio4 from "@/assets/portfolio4.jpg";
+import portfolio5 from "@/assets/portfolio5.jpg";
+//import portfolio6 from "@/assets/portfolio6.jpg";
+import portfolio7 from "@/assets/portfolio7.jpg";
+import portfolio9 from "@/assets/portfolio9.jpeg";
+import portfolio10 from "@/assets/portfolio10.jpeg";
 
 const portfolioImages = [
   portfolio1,
-  portfolio2,
+  portfolio5,
   portfolio3,
   portfolio4,
-  portfolio5,
-  portfolio6,
+  portfolio2,
+  portfolio7,
+  portfolio9,
+  portfolio10,
 ];
 
 const Portfolio = () => {

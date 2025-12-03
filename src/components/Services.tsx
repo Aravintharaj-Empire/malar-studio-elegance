@@ -4,23 +4,23 @@ import { Sparkles, PartyPopper, Airplay, GraduationCap } from "lucide-react";
 const services = [
   {
     icon: Sparkles,
-    title: "Bridal Makeup",
-    description: "Timeless elegance for your special day with personalized bridal looks that enhance your natural beauty.",
+    title: "Bridal & Semi-Bridal Makeup",
+    description: "Malar listens to your likes, honour your comfort and craft a look that feels truly you.",
   },
   {
     icon: PartyPopper,
-    title: "Party Makeup",
-    description: "Glamorous looks for any celebration, from cocktails to galas, crafted to make you shine.",
+    title: "Weekend Training Sessions",
+    description: "In just three power-packed days, gain the confidence to do flawless makeup.",
   },
   {
     icon: Airplay,
-    title: "HD & Airbrush Makeup",
-    description: "Flawless, camera-ready finish with high-definition techniques for a picture-perfect appearance.",
+    title: "Malar Session's Experience",
+    description: "Friendly training, real life demonstrations, hands-on practice and skill guidance.",
   },
   {
     icon: GraduationCap,
-    title: "Makeup Training Sessions",
-    description: "Learn professional techniques in personalized workshops. Master the art of makeup application.",
+    title: "Other Services",
+    description: "Party Makeup, photoshoot, fashion event and more tailored to your needs.",
   },
 ];
 

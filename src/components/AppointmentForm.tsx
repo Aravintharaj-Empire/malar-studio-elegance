@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/popover";
 import { CalendarIcon } from "lucide-react";
 import { format } from "date-fns";
+import emailjs from "@emailjs/browser";
 import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
@@ -52,13 +53,44 @@ const AppointmentForm = () => {
       service: "",
     },
   });
+  
 
   const onSubmit = (data: FormData) => {
-    console.log("Appointment booking:", data);
-    toast.success("Appointment request submitted! We'll contact you soon.");
-    form.reset();
+  const templateParams = {
+    name: data.name,
+    email: data.email,
+    phone: data.phone,
+    service: data.service,
+    date: data.date.toDateString(),
   };
 
+  // 1. EmailJS Notification
+  emailjs
+    .send(
+      "service_u0i3s0n",
+      "template_cixz6fg",
+      templateParams,
+      "uqwY8MVM-WTGZ8N5T"
+    )
+    .then(() => {
+      console.log("Email sent");
+    })
+    .catch((err) => console.error(err));
+    
+    //2. Google Sheets Logging
+//     fetch("https://script.google.com/macros/s/AKfycbwb5fDzYNySws2rZ-TdMbhvizLT18sV8yngC2RVIcUq1OFc37UgOSjEeyxwsKTJ4-Q9/exec", {
+//   method: "POST",
+//   mode: "cors",
+//   headers: { "Content-Type": "application/json" },
+//   body: JSON.stringify(templateParams)
+// })
+// .then(res => res.json())
+// .then(data => console.log("Sheet updated:", data))
+// .catch(err => console.error("Sheet error:", err));
+
+  toast.success("Appointment request submitted!");
+  form.reset();
+};
   return (
     <section id="booking" className="py-24 px-4 bg-background">
       <div className="max-w-3xl mx-auto">
@@ -113,7 +145,7 @@ const AppointmentForm = () => {
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="your.email@example.com"
+                        placeholder="user@gmail.com"
                         {...field}
                         className="rounded-xl border-border focus:border-persimmon focus:ring-persimmon"
                       />
@@ -132,7 +164,7 @@ const AppointmentForm = () => {
                     <FormControl>
                       <Input
                         type="tel"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+91 XXXXX-XXXXX"
                         {...field}
                         className="rounded-xl border-border focus:border-persimmon focus:ring-persimmon"
                       />
@@ -156,9 +188,11 @@ const AppointmentForm = () => {
                       </FormControl>
                       <SelectContent className="rounded-xl">
                         <SelectItem value="bridal">Bridal Makeup</SelectItem>
-                        <SelectItem value="party">Party Makeup</SelectItem>
-                        <SelectItem value="hd-airbrush">HD & Airbrush Makeup</SelectItem>
-                        <SelectItem value="training">Makeup Training Session</SelectItem>
+                        <SelectItem value="semi-bridal">Semi Bridal</SelectItem>
+                        <SelectItem value="party-makeup">Party Makeup</SelectItem>
+                        <SelectItem value="photoshoots">Photoshoots</SelectItem>
+                        <SelectItem value="events">Fashion Events</SelectItem>
+                        <SelectItem value="training">Training Session</SelectItem>
                       </SelectContent>
                     </Select>
                     <FormMessage />

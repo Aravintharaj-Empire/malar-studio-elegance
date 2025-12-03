@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import heroBg from "@/assets/hero-bg.jpg";
+import lotus from "@/assets/logo_design_without_background.png";
 
 const Hero = () => {
   return (
@@ -19,11 +20,16 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold text-rich-brown mb-6 tracking-tight">
+           <img 
+    src={lotus} 
+    alt="Malar Lotus Logo" 
+    className="mx-auto -mb-10 w-20 md:w-28 lg:w-32 opacity-90"
+  />
+          <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl font-bold text-rich-brown mb-1 tracking-tight">
             MALAR
           </h1>
-          <p className="font-serif text-2xl md:text-3xl text-rich-brown/80 mb-4 italic">
-            Makeup Studio
+          <p className="font-serif text-2xl md:text-3xl text-rich-brown/80 mb-4">
+            Makeup And Learning Space
           </p>
         </motion.div>
 
