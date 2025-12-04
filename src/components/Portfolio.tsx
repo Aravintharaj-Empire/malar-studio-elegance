@@ -1,14 +1,14 @@
 import { motion } from "framer-motion";
 import { useEffect, useRef } from "react";
-import portfolio1 from "@/assets/portfolio1.jpg";
-import portfolio2 from "@/assets/portfolio2.jpg";
-import portfolio3 from "@/assets/portfolio8.jpeg";
-import portfolio4 from "@/assets/portfolio4.jpg";
-import portfolio5 from "@/assets/portfolio5.jpg";
+import portfolio1 from "@/assets/portfolio1.webp";
+import portfolio2 from "@/assets/portfolio2.webp";
+import portfolio3 from "@/assets/portfolio8.webp";
+import portfolio4 from "@/assets/portfolio4.webp";
+import portfolio5 from "@/assets/portfolio5.webp";
 //import portfolio6 from "@/assets/portfolio6.jpg";
-import portfolio7 from "@/assets/portfolio7.jpg";
-import portfolio9 from "@/assets/portfolio9.jpeg";
-import portfolio10 from "@/assets/portfolio10.jpeg";
+import portfolio7 from "@/assets/portfolio7.webp";
+import portfolio9 from "@/assets/portfolio9.webp";
+import portfolio10 from "@/assets/portfolio10.webp";
 
 const portfolioImages = [
   portfolio1,
