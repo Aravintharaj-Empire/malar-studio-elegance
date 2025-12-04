@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import heroBg from "@/assets/hero-bg.jpg";
-import lotus from "@/assets/logo_design_without_background.png";
+import heroBg from "@/assets/hero-bg.webp";
+import lotus from "@/assets/logo_design_without_background.webp";
 
 const Hero = () => {
   return (
