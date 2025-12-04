@@ -1,0 +1,19 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Malar Makeup Artistry",
+  "image": "https://malar-studio-elegance.vercel.app/og-cover.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Chennai",
+    "addressRegion": "Tamil Nadu",
+    "addressCountry": "IN"
+  },
+  "url": "https://malar-studio-elegance.vercel.app",
+  "sameAs": [
+    "https://instagram.com/malar.makeup_artistry"
+  ],
+  "description": "Professional bridal, HD, party, makeup training & groom makeup services.",
+  "servesCuisine": "Makeup Services",
+  "telephone": "+91-9791079827"
+}
