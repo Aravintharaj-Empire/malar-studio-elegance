@@ -67,10 +67,10 @@ const AppointmentForm = () => {
   // 1. EmailJS Notification
   emailjs
     .send(
-      "service_u0i3s0n",
-      "template_cixz6fg",
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       templateParams,
-      "uqwY8MVM-WTGZ8N5T"
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     )
     .then(() => {
       console.log("Email sent");
