@@ -25,43 +25,53 @@ const Portfolio = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const scrollContainer = scrollRef.current;
-    if (!scrollContainer) return;
+  const scrollContainer = scrollRef.current;
+  if (!scrollContainer) return;
 
-    let scrollInterval: NodeJS.Timeout;
-    let isHovered = false;
+  let isPaused = false;
 
-    const startAutoScroll = () => {
-      scrollInterval = setInterval(() => {
-        if (!isHovered && scrollContainer) {
-          scrollContainer.scrollLeft += 1;
-          
-          // Reset to beginning when reaching the end
-          if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - scrollContainer.clientWidth) {
-            scrollContainer.scrollLeft = 0;
-          }
-        }
-      }, 20);
-    };
+  let lastTimestamp = 0;
+  const speed = 0.5; // smoother & stable on mobile
 
-    const handleMouseEnter = () => {
-      isHovered = true;
-    };
+  const smoothScroll = (timestamp: number) => {
+    if (!lastTimestamp) lastTimestamp = timestamp;
+    const delta = timestamp - lastTimestamp;
+    lastTimestamp = timestamp;
 
-    const handleMouseLeave = () => {
-      isHovered = false;
-    };
+    if (!isPaused) {
+      scrollContainer.scrollLeft += speed * (delta / 16);
 
-    scrollContainer.addEventListener("mouseenter", handleMouseEnter);
-    scrollContainer.addEventListener("mouseleave", handleMouseLeave);
-    startAutoScroll();
+      // Looping logic
+      if (
+        scrollContainer.scrollLeft >=
+        scrollContainer.scrollWidth - scrollContainer.clientWidth
+      ) {
+        scrollContainer.scrollLeft = 0;
+      }
+    }
 
-    return () => {
-      clearInterval(scrollInterval);
-      scrollContainer.removeEventListener("mouseenter", handleMouseEnter);
-      scrollContainer.removeEventListener("mouseleave", handleMouseLeave);
-    };
-  }, []);
+    requestAnimationFrame(smoothScroll);
+  };
+
+  // Auto scroll start
+  requestAnimationFrame(smoothScroll);
+
+  // Pause on user interactions
+  const pause = () => (isPaused = true);
+  const resume = () => (isPaused = false);
+
+  scrollContainer.addEventListener("touchstart", pause);
+  scrollContainer.addEventListener("touchend", resume);
+  scrollContainer.addEventListener("mouseenter", pause);
+  scrollContainer.addEventListener("mouseleave", resume);
+
+  return () => {
+    scrollContainer.removeEventListener("touchstart", pause);
+    scrollContainer.removeEventListener("touchend", resume);
+    scrollContainer.removeEventListener("mouseenter", pause);
+    scrollContainer.removeEventListener("mouseleave", resume);
+  };
+}, []);
 
   return (
     <section className="py-24 bg-warm-cream overflow-hidden">
