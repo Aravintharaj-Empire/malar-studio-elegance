@@ -27,6 +27,8 @@ const Portfolio = () => {
   useEffect(() => {
   const scrollContainer = scrollRef.current;
   if (!scrollContainer) return;
+  scrollContainer.scrollLeft = 0;
+
 
   let isPaused = false;
 
@@ -34,24 +36,24 @@ const Portfolio = () => {
   const speed = 0.5; // smoother & stable on mobile
 
   const smoothScroll = (timestamp: number) => {
-    if (!lastTimestamp) lastTimestamp = timestamp;
-    const delta = timestamp - lastTimestamp;
-    lastTimestamp = timestamp;
+  if (!lastTimestamp) lastTimestamp = timestamp;
+  const delta = timestamp - lastTimestamp;
+  lastTimestamp = timestamp;
 
-    if (!isPaused) {
-      scrollContainer.scrollLeft += speed * (delta / 16);
+  if (!isPaused) {
+    scrollContainer.scrollLeft += speed * (delta / 16);
 
-      // Looping logic
-      if (
-        scrollContainer.scrollLeft >=
-        scrollContainer.scrollWidth - scrollContainer.clientWidth
-      ) {
-        scrollContainer.scrollLeft = 0;
-      }
+    // ✅ FIXED looping logic
+    const maxScroll = scrollContainer.scrollWidth / 2;
+
+    if (scrollContainer.scrollLeft >= maxScroll) {
+      scrollContainer.scrollLeft = 0;
     }
+  }
 
-    requestAnimationFrame(smoothScroll);
-  };
+  requestAnimationFrame(smoothScroll);
+};
+
 
   // Auto scroll start
   requestAnimationFrame(smoothScroll);
@@ -94,7 +96,7 @@ const Portfolio = () => {
 
       <div
         ref={scrollRef}
-        className="flex gap-6 overflow-x-auto scrollbar-hide px-4 scroll-smooth"
+        className="flex gap-6 overflow-x-auto scrollbar-hide px-4 touch-pan-x"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {/* Duplicate images for seamless loop */}
